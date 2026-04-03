@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bajrang Dham — Sacred Land, Divine Living</title>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:   #1C3A2A;
+    --green-mid:    #2E5940;
+    --green-soft:   #4A7C59;
+    --green-light:  #7BAF8A;
+    --beige:        #F2EAD3;
+    --beige-mid:    #E0D5B7;
+    --beige-dark:   #C8B98A;
+    --saffron:      #D4813A;
+    --saffron-light:#E8A055;
+    --cream:        #FAF6EE;
+    --dark:         #0E1F16;
+    --text-muted:   #8A9E8F;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--green-deep);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 20px 60px;
+    background: linear-gradient(to bottom, rgba(14,31,22,0.95), transparent);
+    transition: background 0.4s;
+  }
+  nav.scrolled { background: rgba(14,31,22,0.97); }
+
+  .nav-logo {
+    display: flex; flex-direction:column; line-height:1;
+  }
+  .nav-logo-main {
+    font-family: 'Yeseva One', serif;
+    font-size: 20px; letter-spacing: 2px;
+    color: var(--beige);
+  }
+  .nav-logo-sub {
+    font-size: 9px; letter-spacing: 5px; color: var(--saffron);
+    text-transform: uppercase; margin-top:2px;
+  }
+
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a {
+    text-decoration:none; color: var(--beige-mid);
+    font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:400;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--saffron-light); }
+
+  .nav-cta {
+    border: 1px solid var(--saffron);
+    color: var(--saffron);
+    font-size:9px; letter-spacing:3px; text-transform:uppercase;
+    padding:10px 22px; text-decoration:none; font-weight:500;
+    transition:all 0.3s;
+  }
+  .nav-cta:hover { background:var(--saffron); color:var(--dark); }
+
+  /* ── HERO ── */
+  .hero {
+    position:relative; height:100vh; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    text-align: center;
+  }
+  .hero-bg {
+    position:absolute; inset:0;
+    background:
+      linear-gradient(to top, rgba(14,31,22,0.97) 0%, rgba(14,31,22,0.45) 55%, rgba(14,31,22,0.2) 100%),
+      url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85') center/cover;
+    transform:scale(1.06);
+    animation: heroZoom 14s ease-out forwards;
+  }
+  @keyframes heroZoom { to { transform:scale(1); } }
+
+  /* floating botanical circles */
+  .hero-circle {
+    position:absolute; border-radius:50%;
+    border: 1px solid rgba(122,175,138,0.15);
+    animation: circlePulse 6s ease-in-out infinite;
+  }
+  .hero-circle:nth-child(2){ width:600px;height:600px; top:-100px;right:-150px; animation-delay:0s; }
+  .hero-circle:nth-child(3){ width:400px;height:400px; top:40px;right:-50px; animation-delay:1s; }
+  .hero-circle:nth-child(4){ width:200px;height:200px; top:140px;right:50px; animation-delay:2s; }
+  @keyframes circlePulse { 0%,100%{opacity:0.3}50%{opacity:0.8} }
+
+  .hero-content {
+    position:relative; z-index:2;
+    padding:0 20px;
+    animation: fadeUp 1.6s ease-out 0.4s both;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+
+  /* Divine Hanumanji Logo & Animation */
+  .divine-logo-container {
+    position: relative;
+    width: 160px; height: 160px;
+    margin: 0 auto 30px auto;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .divine-chakra {
+    position: absolute;
+    inset: -40px;
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    animation: spinChakra 18s linear infinite;
+    z-index: 1;
+  }
+  .divine-chakra-inner {
+    position: absolute;
+    inset: -25px;
+    width: calc(100% + 50px);
+    height: calc(100% + 50px);
+    animation: spinChakra 12s linear infinite reverse;
+    z-index: 2;
+  }
+  @keyframes spinChakra {
+    100% { transform: rotate(360deg); }
+  }
+  .hanuman-avatar {
+    position: relative;
+    width: 100%; height: 100%;
+    z-index: 3;
+    border-radius: 50%;
+    border: 3px solid var(--saffron);
+    box-shadow: 0 0 40px rgba(212,129,58,0.8), inset 0 0 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+    background: #fff; /* White background to match image */
+  }
+  .hanuman-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    /* This scale zooms in the image slightly to hide the white background corners of your uploaded image! */
+    transform: scale(1.15); 
+  }
+
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:10px;
+    border: 1px solid rgba(212,129,58,0.5);
+    background: rgba(212,129,58,0.08);
+    color: var(--saffron-light);
+    font-size:9px; letter-spacing:4px; text-transform:uppercase;
+    padding:7px 18px; margin-bottom:24px;
+  }
+  .hero-title {
+    font-family:'Yeseva One', serif;
+    font-size: clamp(68px, 11vw, 150px);
+    color: var(--beige);
+    line-height:0.92; margin-bottom:10px;
+    letter-spacing:-1px;
+    text-shadow: 0 0 40px rgba(212,129,58,0.6);
+  }
+  .hero-title-sub {
+    font-family:'EB Garamond', serif;
+    font-size: clamp(22px,3vw,42px);
+    color: var(--saffron-light);
+    font-style:italic; letter-spacing:2px;
+    margin-bottom:28px; display:block;
+  }
+  .hero-sub {
+    font-size:13px; letter-spacing:1px; color: var(--beige-mid);
+    max-width:540px; line-height:2; margin-bottom:44px; opacity:0.85;
+  }
+  .hero-actions { display:flex; gap:16px; flex-wrap:wrap; justify-content: center; }
+  .btn-saffron {
+    background: var(--saffron);
+    color: var(--cream);
+    font-size:10px; letter-spacing:3px; text-transform:uppercase;
+    padding:15px 38px; text-decoration:none; font-weight:500;
+    transition:all 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-saffron:hover { background:var(--saffron-light); }
+  .btn-outline-beige {
+    border: 1px solid rgba(242,234,211,0.35);
+    color: var(--beige-mid);
+    font-size:10px; letter-spacing:3px; text-transform:uppercase;
+    padding:15px 38px; text-decoration:none;
+    transition:all 0.3s;
+  }
+  .btn-outline-beige:hover { border-color:var(--saffron); color:var(--saffron); }
+
+  .hero-scroll {
+    position:absolute; bottom:36px; right:60px; z-index:2;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-size:8px; letter-spacing:4px; color:var(--text-muted); text-transform:uppercase;
+  }
+  .scroll-line {
+    width:1px; height:55px;
+    background:linear-gradient(to bottom, var(--saffron), transparent);
+    animation:scrollBlink 2s ease-in-out infinite;
+  }
+  @keyframes scrollBlink{0%,100%{opacity:0.3}50%{opacity:1}}
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--green-deep);
+    padding:22px 60px;
+    display:flex; gap:0; align-items:center;
+  }
+  .stat { flex:1; text-align:center; padding:0 10px; }
+  .stat-num {
+    font-family:'Yeseva One',serif;
+    font-size:38px; color:var(--saffron); display:block; line-height:1;
+  }
+  .stat-label {
+    font-size:8px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--beige-mid); opacity:0.6; margin-top:5px; display:block;
+  }
+  .stat-div { width:1px; height:44px; background:rgba(242,234,211,0.1); flex-shrink:0; }
+
+  /* ── SECTION HELPERS ── */
+  .section-label {
+    font-size:9px; letter-spacing:5px; text-transform:uppercase;
+    color:var(--saffron); margin-bottom:14px; display:block;
+  }
+  .section-title {
+    font-family:'Yeseva One',serif;
+    font-size:clamp(34px,4.5vw,60px);
+    color:var(--green-deep); line-height:1.05;
+  }
+  .section-title em {
+    font-family:'EB Garamond',serif;
+    font-style:italic; color:var(--saffron); font-size:1.1em;
+  }
+  .section-title.light { color:var(--beige); }
+  .section-title.light em { color:var(--saffron-light); }
+
+  /* ── ABOUT ── */
+  .about-wrap {
+    max-width:1400px; margin:0 auto;
+    padding:120px 60px;
+    display:grid; grid-template-columns:1fr 1fr; gap:90px; align-items:center;
+  }
+  .about-imgs { position:relative; }
+  .about-main {
+    width:100%; height:560px; object-fit:cover; display:block;
+    filter: saturate(0.9);
+  }
+  .about-accent {
+    position:absolute; bottom:-28px; right:-28px;
+    width:52%; height:210px; object-fit:cover;
+    border:5px solid var(--cream);
+  }
+  .about-leaf-border {
+    position:absolute; top:-14px; left:-14px;
+    right:25%; bottom:28%;
+    border:1px solid var(--green-soft); opacity:0.4; pointer-events:none;
+  }
+  .about-text p {
+    font-size:14px; line-height:2.1; color:#4A5C4F;
+    margin:22px 0 34px;
+  }
+
+  /* ── GALLERY ── */
+  .gallery-section { padding:40px 0 110px; }
+  .gallery-header {
+    padding:0 60px; margin-bottom:50px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+  }
+  .gallery-grid {
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    grid-template-rows:290px 290px;
+    gap:5px; padding:0 5px;
+  }
+  .gallery-grid .g1{grid-column:1/6;grid-row:1/2;}
+  .gallery-grid .g2{grid-column:6/9;grid-row:1/2;}
+  .gallery-grid .g3{grid-column:9/13;grid-row:1/3;}
+  .gallery-grid .g4{grid-column:1/4;grid-row:2/3;}
+  .gallery-grid .g5{grid-column:4/9;grid-row:2/3;}
+
+  .g-item { overflow:hidden; position:relative; cursor:pointer; }
+  .g-item img { width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;display:block; }
+  .g-item:hover img { transform:scale(1.07); }
+  .g-overlay {
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(28,58,42,0.65),transparent);
+    opacity:0;transition:opacity 0.4s;
+  }
+  .g-item:hover .g-overlay{opacity:1;}
+
+  /* ── VIDEO ── */
+  .video-section {
+    background: var(--green-deep);
+    padding:110px 60px; text-align:center;
+  }
+  .video-wrap {
+    max-width:980px; margin:60px auto 0;
+    border:1px solid rgba(212,129,58,0.25);
+    position:relative;
+  }
+  .video-thumb {
+    width:100%; aspect-ratio:16/9;
+    background:
+      linear-gradient(to top, rgba(14,31,22,0.8) 0%, rgba(14,31,22,0.2) 100%),
+      url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1200&q=80') center/cover;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; position:relative;
+  }
+  .play-btn {
+    width:76px;height:76px;border-radius:50%;
+    border:2px solid var(--saffron);
+    background:rgba(212,129,58,0.15);
+    display:flex;align-items:center;justify-content:center;
+    transition:all 0.3s; position:relative; z-index:2;
+  }
+  .play-btn:hover{background:var(--saffron);transform:scale(1.1);}
+  .play-btn svg{width:22px;fill:var(--saffron);margin-left:4px;}
+  .play-btn:hover svg{fill:var(--cream);}
+  .video-caption {
+    position:absolute;bottom:0;left:0;right:0;
+    padding:20px 28px;
+    background:linear-gradient(to top,rgba(14,31,22,0.9),transparent);
+    text-align:left;
+  }
+  .video-caption span{font-size:10px;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;}
+  .video-iframe-wrap{width:100%;aspect-ratio:16/9;display:none;}
+  .video-iframe-wrap iframe{width:100%;height:100%;border:none;}
+
+  /* ── LOCATION ── */
+  .location-section {
+    max-width:1400px; margin:0 auto;
+    padding:120px 60px;
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+  }
+  .location-map-wrap { position:relative; height:520px; overflow:hidden; }
+  .location-map-wrap iframe { width:100%; height:100%; border:0; }
+  .dist-list { margin-top:42px; display:flex; flex-direction:column; }
+  .dist-item {
+    display:flex;align-items:center;gap:18px;
+    padding:16px 0; border-bottom:1px solid rgba(74,124,89,0.2);
+  }
+  .dist-icon {
+    width:44px;height:44px;
+    border:1px solid rgba(212,129,58,0.3);
+    background:rgba(212,129,58,0.05);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px; flex-shrink:0;
+  }
+  .dist-name{font-size:13px;color:#4A5C4F;letter-spacing:0.5px;flex:1;}
+  .dist-val{
+    font-family:'Yeseva One',serif;
+    font-size:20px;color:var(--saffron);
+  }
+
+  /* ── QUOTE BANNER ── */
+  .quote-banner {
+    position:relative; overflow:hidden; height:480px;
+    display:flex; align-items:center;
+  }
+  .quote-banner-bg {
+    position:absolute;inset:0;
+    background:
+      linear-gradient(to right,rgba(14,31,22,0.95) 40%,rgba(14,31,22,0.5) 100%),
+      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover;
+  }
+  .quote-content{
+    position:relative;z-index:2;
+    padding:0 60px; max-width:680px;
+  }
+  .quote-text {
+    font-family:'EB Garamond',serif;
+    font-size:clamp(26px,3.5vw,50px);
+    color:var(--beige); line-height:1.35; margin-bottom:24px;
+    font-style:italic;
+  }
+  .quote-text em{color:var(--saffron-light);font-style:normal;}
+  .quote-attr{font-size:10px;letter-spacing:3px;color:var(--text-muted);text-transform:uppercase;}
+
+  /* ── FACILITIES ── */
+  .facilities-section {
+    padding:120px 0;
+    background: linear-gradient(180deg, var(--cream) 0%, #EDE6D0 100%);
+  }
+  .facilities-header{padding:0 60px;margin-bottom:64px;}
+  .facilities-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:3px; padding:0 3px;
+  }
+  .fac-card{
+    position:relative;overflow:hidden;
+    height:440px; cursor:pointer;
+  }
+  .fac-card img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 0.7s ease; display:block;
+    filter:saturate(0.8);
+  }
+  .fac-card:hover img{transform:scale(1.08);filter:saturate(1);}
+  .fac-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to top, rgba(14,31,22,0.93) 0%, rgba(14,31,22,0.15) 60%);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:28px 24px;
+    transition:background 0.4s;
+  }
+  .fac-card:hover .fac-overlay{
+    background:linear-gradient(to top, rgba(14,31,22,0.97) 0%, rgba(14,31,22,0.35) 60%);
+  }
+  .fac-num{
+    position:absolute;top:18px;right:18px;
+    font-family:'Yeseva One',serif;
+    font-size:52px;color:rgba(212,129,58,0.12);line-height:1;
+  }
+  .fac-emoji{font-size:28px;margin-bottom:10px;display:block;transform:translateY(6px);transition:transform 0.4s;}
+  .fac-card:hover .fac-emoji{transform:translateY(0);}
+  .fac-line{width:0;height:2px;background:var(--saffron);margin-bottom:12px;transition:width 0.5s ease;}
+  .fac-card:hover .fac-line{width:36px;}
+  .fac-name{
+    font-family:'Yeseva One',serif;
+    font-size:22px;color:var(--beige);margin-bottom:6px;
+  }
+  .fac-desc{
+    font-size:11px;color:var(--beige-mid);line-height:1.8;
+    max-height:0;overflow:hidden;transition:max-height 0.45s ease;
+  }
+  .fac-card:hover .fac-desc{max-height:80px;}
+
+  /* ── CTA ── */
+  .cta-section{
+    padding:130px 60px; text-align:center;
+    background:var(--beige);
+    position:relative; overflow:hidden;
+  }
+  .cta-watermark{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:'Yeseva One',serif;
+    font-size:180px;color:rgba(46,89,64,0.04);
+    white-space:nowrap; pointer-events:none;
+    letter-spacing:10px;
+  }
+  .cta-section .section-title{margin-bottom:18px;}
+  .cta-section p{font-size:13px;color:#5A6E5F;line-height:2.1;margin-bottom:46px;letter-spacing:0.5px;}
+  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* ── NEW CENTERED CONTACT STRIP ── */
+  .contact-strip {
+    background: var(--green-deep);
+    padding: 100px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .contact-strip h3 {
+    font-family: 'Yeseva One', serif;
+    font-size: clamp(38px, 5vw, 52px);
+    color: var(--beige);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .contact-strip p {
+    font-size: 14px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+  .contact-person {
+    font-size: 16px;
+    color: var(--saffron-light);
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer{
+    background:var(--dark);
+    padding:44px 60px;
+    display:flex;align-items:center;justify-content:center;
+    flex-wrap:wrap;gap:24px;
+    border-top:1px solid rgba(212,129,58,0.12);
+  }
+  .footer-brand{display:flex;flex-direction:column;gap:4px; text-align:center;}
+  .footer-name{
+    font-family:'Yeseva One',serif;
+    font-size:22px;color:var(--beige);letter-spacing:2px;
+  }
+  .footer-tagline{font-size:8px;letter-spacing:4px;color:var(--saffron);text-transform:uppercase;opacity:0.7;}
+
+  /* ── REVEAL ── */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity 0.85s ease,transform 0.85s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:960px){
+    nav{padding:18px 24px;}
+    .nav-links,.nav-cta{display:none;}
+    .hero-content{padding:0 24px 80px;}
+    .about-wrap{grid-template-columns:1fr;padding:80px 24px;}
+    .about-accent{display:none;}
+    .gallery-header{padding:0 24px;}
+    .location-section{grid-template-columns:1fr;padding:80px 24px;}
+    .facilities-header{padding:0 24px;}
+    .facilities-grid{grid-template-columns:1fr 1fr;}
+    .cta-section{padding:80px 24px;}
+    .contact-strip{padding:70px 24px;}
+    footer{padding:36px 24px;}
+    .stats-strip{flex-wrap: wrap; padding:20px 24px;gap:20px 0;}
+    .stat { flex: 1 1 30%; }
+    .stat-div { display: none; }
+    .quote-content{padding:0 24px;}
+    .video-section{padding:80px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-main">Bajrang Dham</span>
+    <span class="nav-logo-sub">Sacred Township</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#facilities">Suvidhayen</a></li>
+    <li><a href="#contact">Sampark</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enquire Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-content">
+    
+    <!-- Sitting Panchmukhi Hanumanji Logo with Divine Chakra -->
+    <div class="divine-logo-container">
+      <!-- Outer Revolving Chakra -->
+      <svg class="divine-chakra" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glowEffect">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <g filter="url(#glowEffect)">
+          <!-- Sunburst Rays -->
+          <circle cx="120" cy="120" r="110" fill="none" stroke="#D4813A" stroke-width="1" stroke-dasharray="2 6"/>
+          <path d="M120,5 L125,20 L120,15 L115,20 Z M120,235 L125,220 L120,225 L115,220 Z M5,120 L20,115 L15,120 L20,125 Z M235,120 L220,115 L225,120 L220,125 Z M38,38 L52,45 L48,48 L45,52 Z M202,202 L188,195 L192,192 L195,188 Z M202,38 L188,45 L192,48 L195,52 Z M38,202 L52,195 L48,192 L45,188 Z" fill="#E8A055"/>
+          <!-- Intricate Golden Rings -->
+          <circle cx="120" cy="120" r="95" fill="none" stroke="#D4813A" stroke-width="2" stroke-dasharray="8 6"/>
+          <circle cx="120" cy="120" r="88" fill="none" stroke="#E8A055" stroke-width="1"/>
+          <circle cx="120" cy="120" r="78" fill="none" stroke="#D4813A" stroke-width="6" stroke-dasharray="2 12"/>
+        </g>
+      </svg>
+      
+      <!-- Inner Revolving Star Mandala -->
+      <svg class="divine-chakra-inner" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+         <g stroke="#E8A055" fill="none" stroke-width="1.5">
+           <polygon points="120,45 135,85 180,90 145,115 155,160 120,135 85,160 95,115 60,90 105,85" stroke-linejoin="round"/>
+           <polygon points="120,195 105,155 60,150 95,125 85,80 120,105 155,80 145,125 180,150 135,155" stroke-linejoin="round" opacity="0.6"/>
+         </g>
+      </svg>
+
+      <!-- Make sure your local image is renamed to hanuman-logo.jpg in the same folder! -->
+      <div class="hanuman-avatar">
+        <img src="hanuman-logo.jpg" alt="Sitting Hanumanji Panchmukhi Avatar">
+      </div>
+    </div>
+
+    <div class="hero-badge">
+      <span style="color:var(--saffron);font-size:14px;">🚩</span>
+      Introducing · Bajrang Dham Township
+    </div>
+    
+    <h1 class="hero-title">Bajrang Dham</h1>
+    <span class="hero-title-sub">Pavitra Bhoomi, Swarnima Jeevan</span>
+    
+    <p class="hero-sub">A blessed township where sacred living meets natural abundance — crafted for families who seek peace, community, and a divine address to call home.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn-saffron">Explore Township</a>
+      <a href="#about" class="btn-outline-beige">View Master Plan</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat"><span class="stat-num">20</span><span class="stat-label">Acres</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">800+</span><span class="stat-label">Premium Plots</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">725</span><span class="stat-label">Sq Ft Starting</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">CNT FREE</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">Fair</span><span class="stat-label">Papers</span></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-wrap">
+    <div class="about-imgs reveal">
+      <div class="about-leaf-border"></div>
+      <img class="about-main" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80" alt="Bajrang Dham land">
+      <img class="about-accent" src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&q=80" alt="Nature detail">
+    </div>
+    <div class="about-text reveal">
+      <span class="section-label">🙏 About</span>
+      <h2 class="section-title">Pavitra Bhoomi,<br><em>Sunehara Kal</em></h2>
+      <p>Bajrang Dham ek aise township ki kalpana hai jahan har plot par Bajrang Bali ki kripa ho. Yahan mandir ki pavitrata, aur aadhunik suvidhaon ka sangam hai — ek aisa ghar jo sirf makan nahi, balki jeevan bana de.</p>
+      <p>Hamare 20 acres mein failey is township mein swachh vayu, hare-bhare parks, pyara talab, aur ek sakshat mandir aapka swagat karta hai. Yeh sirf zameen nahi — yeh aapke sapno ki dharohar hai.</p>
+      <a href="#contact" class="btn-saffron">Book a Site Visit</a>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="gallery-header reveal">
+    <div>
+      <span class="section-label">📸 Township Darshan</span>
+      <h2 class="section-title">Prakriti Ki<br><em>Goad Mein</em></h2>
+    </div>
+    <a href="#contact" class="btn-outline-beige" style="border-color:rgba(74,124,89,0.5);color:var(--green-mid);">Brochure Mangayen</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item g1">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=900&q=80" alt="Greenery">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item g2">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=700&q=80" alt="Nature">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item g3">
+      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=700&q=80" alt="Landscape">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item g4">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Temple">
+      <div class="g-overlay"></div>
+    </div>
+    <div class="g-item g5">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Green land">
+      <div class="g-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="reveal">
+    <span class="section-label" style="color:var(--saffron-light);">🎬 Anubhav Karen</span>
+    <h2 class="section-title light">Bajrang Dham Ki<br><em>Jhalak Dekhein</em></h2>
+  </div>
+  <div class="video-wrap reveal">
+    <div class="video-thumb" id="videoThumb" onclick="playVideo()">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="video-caption">
+        <span>▶  Bajrang Dham Township Tour — Watch Now</span>
+      </div>
+    </div>
+    <div class="video-iframe-wrap" id="videoFrame">
+      <iframe id="ytFrame" src="" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="location-section">
+    
+    <!-- Your Exact Custom Google Maps Link -->
+    <div class="location-map-wrap reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3651.5972065837577!2d86.2500703753363!3d23.76173897866262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQ1JzQyLjMiTiA4NsKwMTUnMDkuNSJF!5e0!3m2!1sen!2sin!4v1774970976385!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="reveal">
+      <span class="section-label">📍 Location</span>
+      <h2 class="section-title">Sab Kuch<br><em>Paas Mein</em></h2>
+      <div class="dist-list">
+        <div class="dist-item">
+          <div class="dist-icon">🚉</div>
+          <span class="dist-name">Railway Station</span>
+          <span class="dist-val">9 Min</span>
+        </div>
+        <div class="dist-item">
+          <div class="dist-icon">🛕</div>
+          <span class="dist-name">Mandir</span>
+          <span class="dist-val">Township ke Andar</span>
+        </div>
+        <div class="dist-item">
+          <div class="dist-icon">🏫</div>
+          <span class="dist-name">Vidyalay / School</span>
+          <span class="dist-val">13 Min</span>
+        </div>
+        <div class="dist-item">
+          <div class="dist-icon">🌊</div>
+          <span class="dist-name">Talab / Lake</span>
+          <span class="dist-val">Township ke Andar</span>
+        </div>
+        <div class="dist-item">
+          <div class="dist-icon">🏥</div>
+          <span class="dist-name">Chikitsalay / Hospital</span>
+          <span class="dist-val">7 Min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<section class="quote-banner">
+  <div class="quote-banner-bg"></div>
+  <div class="quote-content reveal">
+    <p class="quote-text">"Zameen woh nahi jo sirf dikhe —<br>zameen woh hai jo<br><em>dil ko chain de.</em>"</p>
+    <p class="quote-attr">— Bajrang Dham ka Vaada</p>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="facilities" class="facilities-section">
+  <div class="facilities-header reveal">
+    <span class="section-label">🌿 Vishesh Suvidhayen</span>
+    <h2 class="section-title">Yahan Hai Sab<br><em>Apnapan</em></h2>
+  </div>
+  <div class="facilities-grid">
+    <!-- 1: Mandir -->
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1545043994-a24bfb86e801?w=700&q=80" alt="Mandir">
+      <div class="fac-num">01</div>
+      <div class="fac-overlay">
+        <span class="fac-emoji">🛕</span>
+        <div class="fac-line"></div>
+        <div class="fac-name">Bajrang Mandir</div>
+        <div class="fac-desc">Township ke hriday mein sthit Bajrang Bali ka pavitra mandir — pratidin aarti aur bhajan se gunje poora parivesh.</div>
+      </div>
+    </div>
+    <!-- 2: Station -->
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=700&q=80" alt="Station">
+      <div class="fac-num">02</div>
+      <div class="fac-overlay">
+        <span class="fac-emoji">🚉</span>
+        <div class="fac-line"></div>
+        <div class="fac-name">Railway Station</div>
+        <div class="fac-desc">Station ki nikat-ta se aana jaana bahut hi asaan, jisse aap apne kaam aur parivaar ke liye hamesha samay par rahen.</div>
+      </div>
+    </div>
+    <!-- 3: School -->
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=700&q=80" alt="School">
+      <div class="fac-num">03</div>
+      <div class="fac-overlay">
+        <span class="fac-emoji">🏫</span>
+        <div class="fac-line"></div>
+        <div class="fac-name">Vidyalay</div>
+        <div class="fac-desc">Bachon ka ujjwal bhavishya — paas mein uttam shiksha sansthaan jahan gyan aur sanskaar saath chalte hain.</div>
+      </div>
+    </div>
+    <!-- 4: Hospital -->
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=80" alt="Hospital">
+      <div class="fac-num">04</div>
+      <div class="fac-overlay">
+        <span class="fac-emoji">🏥</span>
+        <div class="fac-line"></div>
+        <div class="fac-name">Hospital</div>
+        <div class="fac-desc">Swasthya ki behtar dekhbhal ke liye aadhunik suvidhaon se yukt hospital, aapke parivar ki suraksha ke liye.</div>
+      </div>
+    </div>
+    <!-- 5: Chhath Talab -->
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=700&q=80" alt="Talab">
+      <div class="fac-num">05</div>
+      <div class="fac-overlay">
+        <span class="fac-emoji">🌊</span>
+        <div class="fac-line"></div>
+        <div class="fac-name">Chhath Talab</div>
+        <div class="fac-desc">Chhath puja aur dhyan ke liye pavitra talab, jahan parivar ke sath shanti aur anand ka anubhav karein.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-watermark">BAJRANG</div>
+  <div class="reveal">
+    <span class="section-label">🚩 Seemit Plots Upalabdh</span>
+    <h2 class="section-title">Apna Plot<br><em>Abhi Book Karen</em></h2>
+    <p>Pre-launch pricing sirf kuch samay ke liye upalabdh hai.<br>Abhi sampark karen aur apna sapna ghar suraxit karen.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-saffron">Site Visit Book Karen</a>
+    </div>
+  </div>
+</section>
+
+<!-- CENTERED CONTACT SECTION -->
+<div id="contact" class="contact-strip reveal">
+  <h3>Aaj Hi<br>Sampark Karen</h3>
+  <p>Hamari team aapka swagat karti hai.<br>Apna naam aur number bhejein — hum call karenge.</p>
+  <div class="contact-person">Contact Mr. Sanjeev Kumar Ranjan</div>
+  
+  <!-- WhatsApp Button -->
+  <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
+    🙏 Enquiry Bhejein
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="footer-name">🚩 Bajrang Dham</span>
+    <span class="footer-tagline">Pavitra Bhoomi · Sacred Township</span>
+  </div>
+</footer>
+
+<script>
+  // Scrolled nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  reveals.forEach(r=>obs.observe(r));
+
+  // Video
+  function playVideo(){
+    const VID = 'YOUR_VIDEO_ID'; 
+    document.getElementById('videoThumb').style.display='none';
+    const frame = document.getElementById('videoFrame');
+    frame.style.display='block';
+    document.getElementById('ytFrame').src=`https://www.youtube.com/embed/${VID}?autoplay=1`;
+  }
+</script>
+</body>
+</html>
