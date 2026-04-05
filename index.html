@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bajrang Dham — Sacred Land, Divine Living</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --green-deep:   #1C3A2A;
@@ -39,12 +43,11 @@
     padding: 20px 60px;
     background: linear-gradient(to bottom, rgba(14,31,22,0.95), transparent);
     transition: background 0.4s;
+    will-change: background;
   }
   nav.scrolled { background: rgba(14,31,22,0.97); }
 
-  .nav-logo {
-    display: flex; flex-direction:column; line-height:1;
-  }
+  .nav-logo { display: flex; flex-direction:column; line-height:1; }
   .nav-logo-main {
     font-family: 'Yeseva One', serif;
     font-size: 20px; letter-spacing: 2px;
@@ -85,14 +88,15 @@
       url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85') center/cover;
     transform:scale(1.06);
     animation: heroZoom 14s ease-out forwards;
+    will-change: transform;
   }
   @keyframes heroZoom { to { transform:scale(1); } }
 
-  /* floating botanical circles */
   .hero-circle {
     position:absolute; border-radius:50%;
     border: 1px solid rgba(122,175,138,0.15);
     animation: circlePulse 6s ease-in-out infinite;
+    will-change: opacity;
   }
   .hero-circle:nth-child(2){ width:600px;height:600px; top:-100px;right:-150px; animation-delay:0s; }
   .hero-circle:nth-child(3){ width:400px;height:400px; top:40px;right:-50px; animation-delay:1s; }
@@ -104,10 +108,10 @@
     padding:0 20px;
     animation: fadeUp 1.6s ease-out 0.4s both;
     display: flex; flex-direction: column; align-items: center;
+    will-change: transform, opacity;
   }
   @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
 
-  /* Divine Hanumanji Logo & Animation */
   .divine-logo-container {
     position: relative;
     width: 160px; height: 160px;
@@ -121,6 +125,7 @@
     height: calc(100% + 80px);
     animation: spinChakra 18s linear infinite;
     z-index: 1;
+    will-change: transform;
   }
   .divine-chakra-inner {
     position: absolute;
@@ -129,10 +134,10 @@
     height: calc(100% + 50px);
     animation: spinChakra 12s linear infinite reverse;
     z-index: 2;
+    will-change: transform;
   }
-  @keyframes spinChakra {
-    100% { transform: rotate(360deg); }
-  }
+  @keyframes spinChakra { 100% { transform: rotate(360deg); } }
+  
   .hanuman-avatar {
     position: relative;
     width: 100%; height: 100%;
@@ -141,12 +146,11 @@
     border: 3px solid var(--saffron);
     box-shadow: 0 0 40px rgba(212,129,58,0.8), inset 0 0 20px rgba(0,0,0,0.5);
     overflow: hidden;
-    background: #fff; /* White background to match image */
+    background: #fff;
   }
   .hanuman-avatar img {
     width: 100%; height: 100%;
     object-fit: cover;
-    /* This scale zooms in the image slightly to hide the white background corners of your uploaded image! */
     transform: scale(1.15); 
   }
 
@@ -289,12 +293,17 @@
   .gallery-grid .g5{grid-column:4/9;grid-row:2/3;}
 
   .g-item { overflow:hidden; position:relative; cursor:pointer; }
-  .g-item img { width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;display:block; }
+  .g-item img { 
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 0.7s ease;display:block; 
+    will-change: transform;
+  }
   .g-item:hover img { transform:scale(1.07); }
   .g-overlay {
     position:absolute;inset:0;
     background:linear-gradient(to top,rgba(28,58,42,0.65),transparent);
     opacity:0;transition:opacity 0.4s;
+    will-change: opacity;
   }
   .g-item:hover .g-overlay{opacity:1;}
 
@@ -312,7 +321,7 @@
     width:100%; aspect-ratio:16/9;
     background:
       linear-gradient(to top, rgba(14,31,22,0.8) 0%, rgba(14,31,22,0.2) 100%),
-      url('Images/bajrang dham thumbnail.png') center/cover;
+      url('Images/bajrang dham thumbnail.webp') center/cover;
     display:flex; align-items:center; justify-content:center;
     cursor:pointer; position:relative;
   }
@@ -405,6 +414,7 @@
     width:100%;height:100%;object-fit:cover;
     transition:transform 0.7s ease; display:block;
     filter:saturate(0.8);
+    will-change: transform, filter;
   }
   .fac-card:hover img{transform:scale(1.08);filter:saturate(1);}
   .fac-overlay{
@@ -513,7 +523,19 @@
     .hero-content{padding:0 24px 80px;}
     .about-wrap{grid-template-columns:1fr;padding:80px 24px;}
     .about-accent{display:none;}
+    
     .gallery-header{padding:0 24px;}
+    /* Grid Mobile Fix: Ensure grid breaks down neatly instead of squishing */
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .gallery-grid .g1, .gallery-grid .g2, .gallery-grid .g3, .gallery-grid .g4, .gallery-grid .g5 {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      height: 250px;
+    }
+
     .location-section{grid-template-columns:1fr;padding:80px 24px;}
     .facilities-header{padding:0 24px;}
     .facilities-grid{grid-template-columns:1fr 1fr;}
@@ -530,7 +552,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">
     <span class="nav-logo-main">Bajrang Dham</span>
@@ -546,7 +567,6 @@
   <a href="#contact" class="nav-cta">Enquire Now</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-circle"></div>
@@ -554,9 +574,7 @@
   <div class="hero-circle"></div>
   <div class="hero-content">
     
-    <!-- Sitting Panchmukhi Hanumanji Logo with Divine Chakra -->
     <div class="divine-logo-container">
-      <!-- Outer Revolving Chakra -->
       <svg class="divine-chakra" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id="glowEffect">
@@ -568,17 +586,14 @@
           </filter>
         </defs>
         <g filter="url(#glowEffect)">
-          <!-- Sunburst Rays -->
           <circle cx="120" cy="120" r="110" fill="none" stroke="#D4813A" stroke-width="1" stroke-dasharray="2 6"/>
           <path d="M120,5 L125,20 L120,15 L115,20 Z M120,235 L125,220 L120,225 L115,220 Z M5,120 L20,115 L15,120 L20,125 Z M235,120 L220,115 L225,120 L220,125 Z M38,38 L52,45 L48,48 L45,52 Z M202,202 L188,195 L192,192 L195,188 Z M202,38 L188,45 L192,48 L195,52 Z M38,202 L52,195 L48,192 L45,188 Z" fill="#E8A055"/>
-          <!-- Intricate Golden Rings -->
           <circle cx="120" cy="120" r="95" fill="none" stroke="#D4813A" stroke-width="2" stroke-dasharray="8 6"/>
           <circle cx="120" cy="120" r="88" fill="none" stroke="#E8A055" stroke-width="1"/>
           <circle cx="120" cy="120" r="78" fill="none" stroke="#D4813A" stroke-width="6" stroke-dasharray="2 12"/>
         </g>
       </svg>
       
-      <!-- Inner Revolving Star Mandala -->
       <svg class="divine-chakra-inner" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
          <g stroke="#E8A055" fill="none" stroke-width="1.5">
            <polygon points="120,45 135,85 180,90 145,115 155,160 120,135 85,160 95,115 60,90 105,85" stroke-linejoin="round"/>
@@ -586,9 +601,9 @@
          </g>
       </svg>
 
-      <!-- Make sure your local image is renamed to hanuman-logo.jpg in the same folder! -->
       <div class="hanuman-avatar">
-        <img src="Images/hanuman-logo.jpg" alt="Sitting Hanumanji Panchmukhi Avatar">
+        <!-- Kept fetchpriority high and removed lazy loading for instant display -->
+        <img src="Images/hanuman-logo.webp" alt="Sitting Hanumanji Panchmukhi Avatar" fetchpriority="high" decoding="sync" width="160" height="160">
       </div>
     </div>
 
@@ -612,7 +627,6 @@
   </div>
 </section>
 
-<!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stat"><span class="stat-num">20</span><span class="stat-label">Acres</span></div>
   <div class="stat-div"></div>
@@ -625,13 +639,13 @@
   <div class="stat"><span class="stat-num">Fair</span><span class="stat-label">Papers</span></div>
 </div>
 
-<!-- ABOUT -->
 <div id="about">
   <div class="about-wrap">
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
-      <img class="about-main" src="Images/1.bajrang dham board.png" alt="Bajrang Dham land">
-      <img class="about-accent" src="Images/2.bajrang dham talab.png" alt="Talab">
+      <!-- Removed lazy loading for above-the-fold content -->
+      <img class="about-main" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" decoding="async" width="1600" height="1120">
+      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" decoding="async" width="800" height="420">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
@@ -643,40 +657,39 @@
   </div>
 </div>
 
-<!-- GALLERY -->
 <section id="gallery" class="gallery-section">
   <div class="gallery-header reveal">
     <div>
       <span class="section-label">📸 Township Darshan</span>
       <h2 class="section-title">Prakriti Ki<br><em>Goad Mein</em></h2>
     </div>
-    <a href="#contact" class="btn-outline-beige" style="border-color:rgba(74,124,89,0.5);color:var(--green-mid);">Brochure Mangayen</a>
+    <!-- Brochure Button Removed -->
   </div>
   <div class="gallery-grid">
     <div class="g-item g1">
-      <img src="Images/3.bajrang dham boundary.png" alt="Baundary">
+      <!-- Lazy loading safely applied here -->
+      <img src="Images/3.bajrang dham boundary.webp" alt="Boundary" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g2">
-      <img src="Images/4.bajrang dham road.png" alt="Road">
+      <img src="Images/4.bajrang dham road.webp" alt="Road" loading="lazy" decoding="async" width="720" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g3">
-      <img src="Images/5.bajrang dham.png" alt="Dham">
+      <img src="Images/5.bajrang dham.webp" alt="Dham" loading="lazy" decoding="async" width="960" height="1392">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g4">
-      <img src="Images/6.bajrang dham land.png" alt="Land">
+      <img src="Images/6.bajrang dham land.webp" alt="Land" loading="lazy" decoding="async" width="720" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g5">
-      <img src="Images/7.bajrang dham land.png" alt="land">
+      <img src="Images/7.bajrang dham land.webp" alt="land" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
   </div>
 </section>
 
-<!-- VIDEO -->
 <section class="video-section">
   <div class="reveal">
     <span class="section-label" style="color:var(--saffron-light);">🎬 Anubhav Karen</span>
@@ -688,26 +701,25 @@
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
       <div class="video-caption">
-        <span>▶  Bajrang Dham Township Tour — Watch Now</span>
+        <span>▶  Bajrang Dham Township Tour — Watch Now</span>
       </div>
     </div>
     <div class="video-iframe-wrap" id="videoFrame">
   <iframe 
     id="ytFrame" 
-    src="https://www.youtube.com/embed/fyR47jd6IEU?si=6BdCyoixkFIWsXsJ" 
+    src="" 
+    data-src="https://www.youtube.com/embed/fyR47jd6IEU?si=6BdCyoixkFIWsXsJ&autoplay=1" 
     title="YouTube video player" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen>
+    allowfullscreen
+    loading="lazy">
   </iframe>
 </div>
 </section>
 
-<!-- LOCATION -->
 <section id="location">
   <div class="location-section">
-    
-    <!-- Your Exact Custom Google Maps Link -->
     <div class="location-map-wrap reveal">
       <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3651.5972065837577!2d86.2500703753363!3d23.76173897866262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQ1JzQyLjMiTiA4NsKwMTUnMDkuNSJF!5e0!3m2!1sen!2sin!4v1774970976385!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -746,7 +758,6 @@
   </div>
 </section>
 
-<!-- QUOTE BANNER -->
 <section class="quote-banner">
   <div class="quote-banner-bg"></div>
   <div class="quote-content reveal">
@@ -755,16 +766,14 @@
   </div>
 </section>
 
-<!-- FACILITIES -->
 <section id="facilities" class="facilities-section">
   <div class="facilities-header reveal">
     <span class="section-label">🌿 Vishesh Suvidhayen</span>
     <h2 class="section-title">Yahan Hai Sab<br><em>Apnapan</em></h2>
   </div>
   <div class="facilities-grid">
-    <!-- 1: Mandir -->
     <div class="fac-card">
-      <img src="Images/hanuman mandir.webp" alt="Mandir">
+      <img src="Images/hanuman mandir.webp" alt="Mandir" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">01</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🛕</span>
@@ -773,9 +782,8 @@
         <div class="fac-desc">Township ke hriday mein sthit Bajrang Bali ka pavitra mandir — pratidin aarti aur bhajan se gunje poora parivesh.</div>
       </div>
     </div>
-    <!-- 2: Station -->
     <div class="fac-card">
-      <img src="Images/dhanbad station.jpg" alt="Station">
+      <img src="Images/dhanbad station.webp" alt="Station" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">02</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🚉</span>
@@ -784,9 +792,8 @@
         <div class="fac-desc">Station ki nikat-ta se aana jaana bahut hi asaan, jisse aap apne kaam aur parivaar ke liye hamesha samay par rahen.</div>
       </div>
     </div>
-    <!-- 3: School -->
     <div class="fac-card">
-      <img src="Images/school image.jpg" alt="School">
+      <img src="Images/school image.webp" alt="School" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">03</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏫</span>
@@ -795,9 +802,8 @@
         <div class="fac-desc">Bachon ka ujjwal bhavishya — paas mein uttam shiksha sansthaan jahan gyan aur sanskaar saath chalte hain.</div>
       </div>
     </div>
-    <!-- 4: Hospital -->
     <div class="fac-card">
-      <img src="Images/doctor for hospital.jpg" alt="Hospital">
+      <img src="Images/doctor for hospital.webp" alt="Hospital" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">04</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏥</span>
@@ -806,9 +812,8 @@
         <div class="fac-desc">Swasthya ki behtar dekhbhal ke liye aadhunik suvidhaon se yukt hospital, aapke parivar ki suraksha ke liye.</div>
       </div>
     </div>
-    <!-- 5: Chhath Talab -->
     <div class="fac-card">
-      <img src="Images/chhath image.jpg" alt="Talab">
+      <img src="Images/chhath image.webp" alt="Talab" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">05</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🌊</span>
@@ -820,7 +825,6 @@
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-section">
   <div class="cta-watermark">BAJRANG</div>
   <div class="reveal">
@@ -833,19 +837,16 @@
   </div>
 </section>
 
-<!-- CENTERED CONTACT SECTION -->
 <div id="contact" class="contact-strip reveal">
   <h3>Aaj Hi<br>Sampark Karen</h3>
   <p>Hamari team aapka swagat karti hai.<br>Apna naam aur number bhejein — hum call karenge.</p>
   <div class="contact-person">Contact Mr. Sanjeev Kumar Ranjan</div>
   
-  <!-- WhatsApp Button -->
   <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
     🙏 Enquiry Bhejein
   </a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">
     <span class="footer-name">🚩 Bajrang Dham</span>
@@ -872,13 +873,13 @@
   },{threshold:0.1});
   reveals.forEach(r=>obs.observe(r));
 
-  // Video
+  // Video - Fixed iframe to load dynamically only when clicked
   function playVideo(){
-    const VID = 'fyR47jd6IEU'; 
     document.getElementById('videoThumb').style.display='none';
-    const frame = document.getElementById('videoFrame');
-    frame.style.display='block';
-   document.getElementById('ytFrame').src = `https://www.youtube.com/embed/${VID}?autoplay=1&mute=0`;
+    const frameWrap = document.getElementById('videoFrame');
+    const iframe = document.getElementById('ytFrame');
+    frameWrap.style.display='block';
+    iframe.src = iframe.getAttribute('data-src');
   }
 </script>
 </body>
