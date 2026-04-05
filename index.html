@@ -312,7 +312,7 @@
     width:100%; aspect-ratio:16/9;
     background:
       linear-gradient(to top, rgba(14,31,22,0.8) 0%, rgba(14,31,22,0.2) 100%),
-      url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=1200&q=80') center/cover;
+      url('bajrang dham thumbnail.png') center/cover;
     display:flex; align-items:center; justify-content:center;
     cursor:pointer; position:relative;
   }
@@ -630,8 +630,8 @@
   <div class="about-wrap">
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
-      <img class="about-main" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80" alt="Bajrang Dham land">
-      <img class="about-accent" src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&q=80" alt="Nature detail">
+      <img class="about-main" src="1.bajrang dham board.png" alt="Bajrang Dham land">
+      <img class="about-accent" src="2.bajrang dham talab.png" alt="Talab">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
@@ -654,23 +654,23 @@
   </div>
   <div class="gallery-grid">
     <div class="g-item g1">
-      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=900&q=80" alt="Greenery">
+      <img src="3.bajrang dham boundary.png" alt="Baundary">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g2">
-      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=700&q=80" alt="Nature">
+      <img src="4.bajrang dham road.png" alt="Road">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g3">
-      <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=700&q=80" alt="Landscape">
+      <img src="5.bajrang dham.png" alt="Dham">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g4">
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Temple">
+      <img src="6.bajrang dham land.png" alt="Land">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g5">
-      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Green land">
+      <img src="7.bajrang dham land.png" alt="land">
       <div class="g-overlay"></div>
     </div>
   </div>
@@ -692,9 +692,15 @@
       </div>
     </div>
     <div class="video-iframe-wrap" id="videoFrame">
-      <iframe id="ytFrame" src="" allowfullscreen allow="autoplay"></iframe>
-    </div>
-  </div>
+  <iframe 
+    id="ytFrame" 
+    src="https://www.youtube.com/embed/fyR47jd6IEU?si=6BdCyoixkFIWsXsJ" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
 </section>
 
 <!-- LOCATION -->
@@ -758,7 +764,7 @@
   <div class="facilities-grid">
     <!-- 1: Mandir -->
     <div class="fac-card">
-      <img src="https://images.unsplash.com/photo-1545043994-a24bfb86e801?w=700&q=80" alt="Mandir">
+      <img src="hanuman mandir.webp" alt="Mandir">
       <div class="fac-num">01</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🛕</span>
@@ -769,7 +775,7 @@
     </div>
     <!-- 2: Station -->
     <div class="fac-card">
-      <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=700&q=80" alt="Station">
+      <img src="dhanbad station.jpg" alt="Station">
       <div class="fac-num">02</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🚉</span>
@@ -780,7 +786,7 @@
     </div>
     <!-- 3: School -->
     <div class="fac-card">
-      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=700&q=80" alt="School">
+      <img src="school image.jpg" alt="School">
       <div class="fac-num">03</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏫</span>
@@ -791,7 +797,7 @@
     </div>
     <!-- 4: Hospital -->
     <div class="fac-card">
-      <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=700&q=80" alt="Hospital">
+      <img src="doctor for hospital.jpg" alt="Hospital">
       <div class="fac-num">04</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏥</span>
@@ -802,7 +808,7 @@
     </div>
     <!-- 5: Chhath Talab -->
     <div class="fac-card">
-      <img src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=700&q=80" alt="Talab">
+      <img src="chhath image.jpg" alt="Talab">
       <div class="fac-num">05</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🌊</span>
@@ -868,11 +874,11 @@
 
   // Video
   function playVideo(){
-    const VID = 'https://youtu.be/fyR47jd6IEU?si=tW1kC4BpnFhS06wp'; 
+    const VID = 'fyR47jd6IEU'; 
     document.getElementById('videoThumb').style.display='none';
     const frame = document.getElementById('videoFrame');
     frame.style.display='block';
-    document.getElementById('ytFrame').src=`https://www.youtube.com/embed/${VID}?autoplay=1`;
+   document.getElementById('ytFrame').src = `https://www.youtube.com/embed/${VID}?autoplay=1&mute=0`;
   }
 </script>
 </body>
