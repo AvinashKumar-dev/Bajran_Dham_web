@@ -166,9 +166,20 @@
     font-family:'Yeseva One', serif;
     font-size: clamp(68px, 11vw, 150px);
     color: var(--beige);
-    line-height:0.92; margin-bottom:10px;
+    line-height:0.92; 
+    margin-bottom: 5px; /* Added breathing room below the title */
     letter-spacing:-1px;
     text-shadow: 0 0 40px rgba(212,129,58,0.6);
+  }
+  .hero-phase {
+    font-size: clamp(16px, 2vw, 22px);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    font-weight: 400;
+    margin-top: 12px; /* Clean spacing away from the 'g' descender */
+    margin-bottom: 22px; /* Nicely spaced above the subtitle */
+    display: block;
   }
   .hero-title-sub {
     font-family:'EB Garamond', serif;
@@ -487,12 +498,23 @@
     letter-spacing: 1px;
     line-height: 1.8;
   }
+  .contact-persons-wrapper {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+  .contact-person-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
   .contact-person {
     font-size: 16px;
     color: var(--saffron-light);
     font-weight: 500;
-    margin-top: 15px;
-    margin-bottom: 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -613,6 +635,7 @@
     </div>
     
     <h1 class="hero-title">Bajrang Dham</h1>
+    <span class="hero-phase">Phase 1</span>
     <span class="hero-title-sub">Pavitra Bhoomi, Swarnima Jeevan</span>
     
     <p class="hero-sub">A blessed township where sacred living meets natural abundance — crafted for families who seek peace, community, and a divine address to call home.</p>
@@ -644,8 +667,8 @@
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
       <!-- Removed lazy loading for above-the-fold content -->
-      <img class="about-main" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" decoding="async" width="1600" height="1120">
-      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" decoding="async" width="800" height="420">
+ <img class="about-main"style="object-position: right;" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" decoding="async" width="1600" height="1120">
+<img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" decoding="async" width="800" height="420">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
@@ -840,11 +863,25 @@
 <div id="contact" class="contact-strip reveal">
   <h3>Aaj Hi<br>Sampark Karen</h3>
   <p>Hamari team aapka swagat karti hai.<br>Apna naam aur number bhejein — hum call karenge.</p>
-  <div class="contact-person">Contact Mr. Sanjeev Kumar Ranjan</div>
   
-  <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
-    🙏 Enquiry Bhejein
-  </a>
+  <div class="contact-persons-wrapper">
+    <!-- First Contact Block -->
+    <div class="contact-person-block">
+      <div class="contact-person">Mr. Sanjeev Kumar Ranjan</div>
+      <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
+        🙏 Enquiry Bhejein
+      </a>
+    </div>
+
+    <!-- Second Contact Block -->
+    <div class="contact-person-block">
+      <div class="contact-person">Mr. Navin Sinha</div>
+      <!-- Replace the href value below with Navin Sinha's contact URL -->
+      <a href="https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
+        🙏 Enquiry Bhejein
+      </a>
+    </div>
+  </div>
 </div>
 
 <footer>
