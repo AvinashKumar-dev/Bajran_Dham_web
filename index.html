@@ -5,8 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bajrang Dham — Sacred Land, Divine Living</title>
 
+<!-- Performance Optimizations: Preconnect & Preload LCP Images -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="Images/hanuman-logo.webp">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85">
+
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -167,7 +171,7 @@
     font-size: clamp(68px, 11vw, 150px);
     color: var(--beige);
     line-height:0.92; 
-    margin-bottom: 5px; /* Added breathing room below the title */
+    margin-bottom: 5px; 
     letter-spacing:-1px;
     text-shadow: 0 0 40px rgba(212,129,58,0.6);
   }
@@ -177,8 +181,8 @@
     text-transform: uppercase;
     color: var(--saffron);
     font-weight: 400;
-    margin-top: 12px; /* Clean spacing away from the 'g' descender */
-    margin-bottom: 22px; /* Nicely spaced above the subtitle */
+    margin-top: 12px; 
+    margin-bottom: 22px; 
     display: block;
   }
   .hero-title-sub {
@@ -286,7 +290,7 @@
   }
 
   /* ── GALLERY ── */
-  .gallery-section { padding:40px 0 110px; }
+  .gallery-section { padding:40px 0 110px; content-visibility: auto; contain-intrinsic-size: 800px; }
   .gallery-header {
     padding:0 60px; margin-bottom:50px;
     display:flex; justify-content:space-between; align-items:flex-end;
@@ -322,6 +326,7 @@
   .video-section {
     background: var(--green-deep);
     padding:110px 60px; text-align:center;
+    content-visibility: auto; contain-intrinsic-size: 600px;
   }
   .video-wrap {
     max-width:980px; margin:60px auto 0;
@@ -361,6 +366,7 @@
     max-width:1400px; margin:0 auto;
     padding:120px 60px;
     display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+    content-visibility: auto; contain-intrinsic-size: 800px;
   }
   .location-map-wrap { position:relative; height:520px; overflow:hidden; }
   .location-map-wrap iframe { width:100%; height:100%; border:0; }
@@ -410,6 +416,7 @@
   .facilities-section {
     padding:120px 0;
     background: linear-gradient(180deg, var(--cream) 0%, #EDE6D0 100%);
+    content-visibility: auto; contain-intrinsic-size: 800px;
   }
   .facilities-header{padding:0 60px;margin-bottom:64px;}
   .facilities-grid{
@@ -544,10 +551,22 @@
     .nav-links,.nav-cta{display:none;}
     .hero-content{padding:0 24px 80px;}
     .about-wrap{grid-template-columns:1fr;padding:80px 24px;}
-    .about-accent{display:none;}
+    
+    /* Optimized the 2 About Images for Mobile layout */
+    .about-imgs { margin-bottom: 20px; }
+    .about-main { height: 340px; border-radius: 4px; }
+    .about-accent { 
+      display: block; /* Overriding previous display:none */
+      width: 55%; 
+      height: 160px; 
+      bottom: -15px; 
+      right: 5px; 
+      border-width: 3px; 
+      border-radius: 4px;
+    }
+    .about-leaf-border { bottom: 15%; right: 15%; }
     
     .gallery-header{padding:0 24px;}
-    /* Grid Mobile Fix: Ensure grid breaks down neatly instead of squishing */
     .gallery-grid {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
@@ -624,7 +643,6 @@
       </svg>
 
       <div class="hanuman-avatar">
-        <!-- Kept fetchpriority high and removed lazy loading for instant display -->
         <img src="Images/hanuman-logo.webp" alt="Sitting Hanumanji Panchmukhi Avatar" fetchpriority="high" decoding="sync" width="160" height="160">
       </div>
     </div>
@@ -666,9 +684,8 @@
   <div class="about-wrap">
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
-      <!-- Removed lazy loading for above-the-fold content -->
- <img class="about-main"style="object-position: right;" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" decoding="async" width="1600" height="1120">
-<img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" decoding="async" width="800" height="420">
+      <img class="about-main" style="object-position: right;" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" decoding="async" width="1600" height="1120">
+      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" decoding="async" width="800" height="420">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
@@ -686,11 +703,9 @@
       <span class="section-label">📸 Township Darshan</span>
       <h2 class="section-title">Prakriti Ki<br><em>Goad Mein</em></h2>
     </div>
-    <!-- Brochure Button Removed -->
   </div>
   <div class="gallery-grid">
     <div class="g-item g1">
-      <!-- Lazy loading safely applied here -->
       <img src="Images/3.bajrang dham boundary.webp" alt="Boundary" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
@@ -744,7 +759,7 @@
 <section id="location">
   <div class="location-section">
     <div class="location-map-wrap reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3651.5972065837577!2d86.2500703753363!3d23.76173897866262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQ1JzQyLjMiTiA4NsKwMTUnMDkuNSJF!5e0!3m2!1sen!2sin!4v1774970976385!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3651.5972065837577!2d86.2500703753363!3d23.76173897866262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQ1JzQyLjMiTiA4NsKwMTUnMDkuNSJF!5e0!3m2!1sen!2sin!4v1774970976385!5m2!1sen!2sin" title="Google Maps Location" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="reveal">
@@ -865,7 +880,6 @@
   <p>Hamari team aapka swagat karti hai.<br>Apna naam aur number bhejein — hum call karenge.</p>
   
   <div class="contact-persons-wrapper">
-    <!-- First Contact Block -->
     <div class="contact-person-block">
       <div class="contact-person">Mr. Sanjeev Kumar Ranjan</div>
       <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
@@ -873,11 +887,9 @@
       </a>
     </div>
 
-    <!-- Second Contact Block -->
     <div class="contact-person-block">
       <div class="contact-person">Mr. Navin Sinha</div>
-      <!-- Replace the href value below with Navin Sinha's contact URL -->
-      <a href="https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
+      <a href="https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
         🙏 Enquiry Bhejein
       </a>
     </div>
