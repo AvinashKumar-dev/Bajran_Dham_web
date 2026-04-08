@@ -271,13 +271,14 @@
   }
   .about-imgs { position:relative; }
   .about-main {
-    width:100%; height:560px; object-fit:cover; display:block;
-    filter: saturate(0.9);
+    width:100%; height:auto; aspect-ratio: 16/11; object-fit:cover; display:block;
+    filter: saturate(0.9); border-radius: 8px;
   }
   .about-accent {
-    position:absolute; bottom:-28px; right:-28px;
-    width:52%; height:210px; object-fit:cover;
-    border:5px solid var(--cream);
+    position:absolute; bottom:-10%; right:-5%;
+    width:55%; height:auto; aspect-ratio: 16/9; object-fit:cover;
+    border:6px solid var(--cream); border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(14,31,22,0.15);
   }
   .about-leaf-border {
     position:absolute; top:-14px; left:-14px;
@@ -550,21 +551,22 @@
     nav{padding:18px 24px;}
     .nav-links,.nav-cta{display:none;}
     .hero-content{padding:0 24px 80px;}
-    .about-wrap{grid-template-columns:1fr;padding:80px 24px;}
+    .about-wrap{grid-template-columns:1fr;padding:70px 24px; gap: 40px;}
     
     /* Optimized the 2 About Images for Mobile layout */
-    .about-imgs { margin-bottom: 20px; }
-    .about-main { height: 340px; border-radius: 4px; }
+    .about-imgs { margin-bottom: 20px; padding-right: 15px; }
+    .about-main { aspect-ratio: 4/3; }
     .about-accent { 
-      display: block; /* Overriding previous display:none */
-      width: 55%; 
-      height: 160px; 
-      bottom: -15px; 
-      right: 5px; 
-      border-width: 3px; 
-      border-radius: 4px;
+      display: block; 
+      width: 65%; 
+      bottom: -15%; 
+      right: 0; 
+      border-width: 4px; 
     }
-    .about-leaf-border { bottom: 15%; right: 15%; }
+    .about-leaf-border { bottom: 10%; right: 10%; }
+    
+    .about-text { text-align: center; }
+    .about-text .section-label { display: flex; justify-content: center; }
     
     .gallery-header{padding:0 24px;}
     .gallery-grid {
@@ -684,8 +686,8 @@
   <div class="about-wrap">
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
-      <img class="about-main" style="object-position: right;" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" decoding="async" width="1600" height="1120">
-      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" decoding="async" width="800" height="420">
+      <img class="about-main" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" loading="lazy" decoding="async" width="1600" height="1120">
+      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" loading="lazy" decoding="async" width="800" height="420">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
