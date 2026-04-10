@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
+  <url>
+    <loc>https://bajrangdhamtownship.in/</loc>
+    <lastmod>2026-04-10T12:00:00+00:00</lastmod>
+    
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/hanuman-logo.webp</image:loc>
+      <image:title>Bajrang Dham Township Logo</image:title>
+      <image:caption>Official logo of Bajrang Dham Township featuring Panchmukhi Hanumanji</image:caption>
+    </image:image>
 
-<url>
-  <loc>https://bajrangdhamtownship.in/</loc>
-  <lastmod>2026-04-08T16:39:22+00:00</lastmod>
-</url>
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/5.bajrang%20dham.webp</image:loc>
+      <image:title>Bajrang Dham Township Entrance</image:title>
+      <image:caption>Main entrance gate of Bajrang Dham Township, Phase 1</image:caption>
+    </image:image>
 
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/1.bajrang%20dham%20board.webp</image:loc>
+      <image:title>Bajrang Dham Project Board</image:title>
+      <image:caption>Premium residential plots available at Bajrang Dham</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/hanuman%20mandir.webp</image:loc>
+      <image:title>Bajrang Mandir inside Township</image:title>
+      <image:caption>Sacred Hanuman Mandir located inside the Bajrang Dham township</image:caption>
+    </image:image>
+
+  </url>
 
 </urlset>
