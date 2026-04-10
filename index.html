@@ -7,14 +7,14 @@
 <title>Bajrang Dham — Sacred Land, Divine Living</title>
 
 <!-- Favicon -->
-<link rel="icon" href="Images/hanuman-logo.webp" type="image/webp">
+<link rel="icon" href="Images/hanuman-logo.png" type="image/png">
 
 <!-- Performance Optimizations: Responsive Preload LCP Images -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="Images/hanuman-logo.webp">
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80" media="(max-width: 768px)">
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85" media="(min-width: 769px)">
+<link rel="preload" as="image" href="Images/hero-bg.webp" media="(max-width: 768px)">
+<link rel="preload" as="image" href="Images/quote-banner-bg.webp" media="(min-width: 769px)">
 
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
@@ -93,7 +93,7 @@
     position:absolute; inset:0;
     background:
       linear-gradient(to top, rgba(14,31,22,0.97) 0%, rgba(14,31,22,0.45) 55%, rgba(14,31,22,0.2) 100%),
-      url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85') center/cover;
+      url('Images/hero-bg.jpg') center/cover;
     transform:scale(1.06);
     animation: heroZoom 14s ease-out forwards;
   }
@@ -395,7 +395,7 @@
     position:absolute;inset:0;
     background:
       linear-gradient(to right,rgba(14,31,22,0.95) 40%,rgba(14,31,22,0.5) 100%),
-      url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover;
+      url('Images/quote-banner-bg.webp') center/cover;
   }
   .quote-content{
     position:relative;z-index:2;
@@ -563,13 +563,13 @@
     .hero-bg {
       background:
         linear-gradient(to top, rgba(14,31,22,0.97) 0%, rgba(14,31,22,0.45) 55%, rgba(14,31,22,0.2) 100%),
-        url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80') center/cover;
+        url('Images/hero-bg.jpg') center/cover;
     }
     
     .quote-banner-bg {
       background:
         linear-gradient(to right,rgba(14,31,22,0.95) 40%,rgba(14,31,22,0.5) 100%),
-        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80') center/cover;
+        url('Images/quote-banner-bg.webp') center/cover;
     }
 
     .about-wrap{grid-template-columns:1fr;padding:70px 24px; gap: 40px;}
