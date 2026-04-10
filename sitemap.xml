@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
   <url>
     <loc>https://bajrangdhamtownship.in/</loc>
     <lastmod>2026-04-10T12:00:00+00:00</lastmod>
-    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
     <image:image>
       <image:loc>https://bajrangdhamtownship.in/Images/hanuman-logo.webp</image:loc>
       <image:title>Bajrang Dham Township Logo</image:title>
@@ -23,6 +26,36 @@
       <image:title>Bajrang Dham Project Board</image:title>
       <image:caption>Premium residential plots available at Bajrang Dham</image:caption>
     </image:image>
+    
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/2.bajrang%20dham%20talab.webp</image:loc>
+      <image:title>Bajrang Dham Talab</image:title>
+      <image:caption>Beautiful serene lake at Bajrang Dham township</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/3.bajrang%20dham%20boundary.webp</image:loc>
+      <image:title>Bajrang Dham Boundary Wall</image:title>
+      <image:caption>Secure boundary wall of Bajrang Dham township</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/4.bajrang%20dham%20road.webp</image:loc>
+      <image:title>Bajrang Dham Internal Roads</image:title>
+      <image:caption>Paved internal roads inside Bajrang Dham township</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/6.bajrang%20dham%20land.webp</image:loc>
+      <image:title>Bajrang Dham Open Land</image:title>
+      <image:caption>Premium open plot available for sale at Bajrang Dham</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/7.bajrang%20dham%20land.webp</image:loc>
+      <image:title>Bajrang Dham Lush Green Plots</image:title>
+      <image:caption>Lush green landscape and plots at Bajrang Dham</image:caption>
+    </image:image>
 
     <image:image>
       <image:loc>https://bajrangdhamtownship.in/Images/hanuman%20mandir.webp</image:loc>
@@ -30,6 +63,36 @@
       <image:caption>Sacred Hanuman Mandir located inside the Bajrang Dham township</image:caption>
     </image:image>
 
-  </url>
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/dhanbad%20station.webp</image:loc>
+      <image:title>Nearby Dhanbad Railway Station</image:title>
+      <image:caption>Dhanbad Railway Station near the township</image:caption>
+    </image:image>
 
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/school%20image.webp</image:loc>
+      <image:title>Nearby School Facility</image:title>
+      <image:caption>Local school situated close to Bajrang Dham</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/doctor%20for%20hospital.webp</image:loc>
+      <image:title>Nearby Hospital Facility</image:title>
+      <image:caption>Modern hospital facility near the township</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://bajrangdhamtownship.in/Images/chhath%20image.webp</image:loc>
+      <image:title>Chhath Talab Facility</image:title>
+      <image:caption>Dedicated Chhath lake for religious ceremonies inside the township</image:caption>
+    </image:image>
+    
+    <video:video>
+      <video:thumbnail_loc>https://bajrangdhamtownship.in/Images/bajrang%20dham%20thumbnail.webp</video:thumbnail_loc>
+      <video:title>Bajrang Dham Township Tour</video:title>
+      <video:description>Take a virtual tour of the Bajrang Dham Township to experience the serene environment, facilities, and premium land plots.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/fyR47jd6IEU</video:player_loc>
+    </video:video>
+
+  </url>
 </urlset>
