@@ -13,7 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="Images/hanuman-logo.webp">
-<link rel="preload" as="image" href="Images/hero-bg.webp" media="(max-width: 768px)">
+<!-- FIXED: Changed to .jpg to match the CSS background image extension used below -->
+<link rel="preload" as="image" href="Images/hero-bg.jpg" media="(max-width: 768px)">
 <link rel="preload" as="image" href="Images/quote-banner-bg.webp" media="(min-width: 769px)">
 
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -333,9 +334,10 @@
   }
   .video-thumb {
     width:100%; aspect-ratio:16/9;
+    /* FIXED: URL encoded spaces %20 */
     background:
       linear-gradient(to top, rgba(14,31,22,0.8) 0%, rgba(14,31,22,0.2) 100%),
-      url('Images/bajrang dham thumbnail.webp') center/cover;
+      url('Images/bajrang%20dham%20thumbnail.webp') center/cover;
     display:flex; align-items:center; justify-content:center;
     cursor:pointer; position:relative;
   }
@@ -707,8 +709,9 @@
   <div class="about-wrap">
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
-      <img class="about-main" src="Images/1.bajrang dham board.webp" alt="Wide view of open land plots at Bajrang Dham township" loading="lazy" decoding="async" width="1600" height="1120">
-      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Beautiful serene lake at Bajrang Dham township" loading="lazy" decoding="async" width="800" height="420">
+      <!-- FIXED: Added %20 for spaces in filename -->
+      <img class="about-main" src="Images/1.bajrang%20dham%20board.webp" alt="Wide view of open land plots at Bajrang Dham township" loading="lazy" decoding="async" width="1600" height="1120">
+      <img class="about-accent" src="Images/2.bajrang%20dham%20talab.webp" alt="Beautiful serene lake at Bajrang Dham township" loading="lazy" decoding="async" width="800" height="420">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
@@ -729,23 +732,24 @@
   </div>
   <div class="gallery-grid">
     <div class="g-item g1">
-      <img src="Images/3.bajrang dham boundary.webp" alt="Secure boundary wall of Bajrang Dham township" loading="lazy" decoding="async" width="1200" height="696">
+      <!-- FIXED: Added %20 for spaces in filenames below -->
+      <img src="Images/3.bajrang%20dham%20boundary.webp" alt="Secure boundary wall of Bajrang Dham township" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g2">
-      <img src="Images/4.bajrang dham road.webp" alt="Paved internal roads inside Bajrang Dham township" loading="lazy" decoding="async" width="720" height="696">
+      <img src="Images/4.bajrang%20dham%20road.webp" alt="Paved internal roads inside Bajrang Dham township" loading="lazy" decoding="async" width="720" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g3">
-      <img src="Images/5.bajrang dham.webp" alt="Sacred Dham structure within the township" loading="lazy" decoding="async" width="960" height="1392">
+      <img src="Images/5.bajrang%20dham.webp" alt="Sacred Dham structure within the township" loading="lazy" decoding="async" width="960" height="1392">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g4">
-      <img src="Images/6.bajrang dham land.webp" alt="Premium open plot available for sale at Bajrang Dham" loading="lazy" decoding="async" width="720" height="696">
+      <img src="Images/6.bajrang%20dham%20land.webp" alt="Premium open plot available for sale at Bajrang Dham" loading="lazy" decoding="async" width="720" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g5">
-      <img src="Images/7.bajrang dham land.webp" alt="Lush green landscape and plots at Bajrang Dham" loading="lazy" decoding="async" width="1200" height="696">
+      <img src="Images/7.bajrang%20dham%20land.webp" alt="Lush green landscape and plots at Bajrang Dham" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
   </div>
@@ -766,10 +770,11 @@
       </div>
     </div>
     <div class="video-iframe-wrap" id="videoFrame">
+  <!-- FIXED: Replaced & with &amp; in the youtube URL data-src -->
   <iframe 
     id="ytFrame" 
     src="" 
-    data-src="https://www.youtube.com/embed/fyR47jd6IEU?si=6BdCyoixkFIWsXsJ&autoplay=1" 
+    data-src="https://www.youtube.com/embed/fyR47jd6IEU?si=6BdCyoixkFIWsXsJ&amp;autoplay=1" 
     title="Bajrang Dham Township Tour Video" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -834,7 +839,8 @@
   </div>
   <div class="facilities-grid">
     <div class="fac-card">
-      <img src="Images/hanuman mandir.webp" alt="Bajrang Bali Temple located inside the township" loading="lazy" decoding="async" width="600" height="880">
+      <!-- FIXED: Spaces converted to %20 in filenames -->
+      <img src="Images/hanuman%20mandir.webp" alt="Bajrang Bali Temple located inside the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">01</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🛕</span>
@@ -844,7 +850,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/dhanbad station.webp" alt="Dhanbad Railway Station near the township" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/dhanbad%20station.webp" alt="Dhanbad Railway Station near the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">02</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🚉</span>
@@ -854,7 +860,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/school image.webp" alt="Local school situated close to Bajrang Dham" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/school%20image.webp" alt="Local school situated close to Bajrang Dham" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">03</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏫</span>
@@ -864,7 +870,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/doctor for hospital.webp" alt="Modern hospital facility near the township" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/doctor%20for%20hospital.webp" alt="Modern hospital facility near the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">04</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏥</span>
@@ -874,7 +880,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/chhath image.webp" alt="Dedicated Chhath lake for religious ceremonies inside the township" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/chhath%20image.webp" alt="Dedicated Chhath lake for religious ceremonies inside the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">05</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🌊</span>
@@ -905,14 +911,16 @@
   <div class="contact-persons-wrapper">
     <div class="contact-person-block">
       <div class="contact-person">Mr. Sanjeev Kumar Ranjan</div>
-      <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron" aria-label="Send WhatsApp enquiry to Mr. Sanjeev Kumar Ranjan">
+      <!-- FIXED: Changed & to &amp; inside the href parameter list -->
+      <a href="https://api.whatsapp.com/send/?phone=9708673068&amp;text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&amp;type=phone_number&amp;app_absent=0" target="_blank" class="btn-saffron" aria-label="Send WhatsApp enquiry to Mr. Sanjeev Kumar Ranjan">
         🙏 Enquiry Bhejein
       </a>
     </div>
 
     <div class="contact-person-block">
       <div class="contact-person">Mr. Navin Sinha</div>
-      <a href="https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron" aria-label="Send WhatsApp enquiry to Mr. Navin Sinha">
+      <!-- FIXED: Changed & to &amp; inside the href parameter list -->
+      <a href="https://api.whatsapp.com/send/?phone=7979076270&amp;text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&amp;type=phone_number&amp;app_absent=0" target="_blank" class="btn-saffron" aria-label="Send WhatsApp enquiry to Mr. Navin Sinha">
         🙏 Enquiry Bhejein
       </a>
     </div>
