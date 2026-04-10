@@ -6,11 +6,15 @@
 <meta name="description" content="Welcome to Bajrang Dham Township. Discover premium land and beautiful plots for your future home.">
 <title>Bajrang Dham — Sacred Land, Divine Living</title>
 
-<!-- Performance Optimizations: Preconnect & Preload LCP Images -->
+<!-- Favicon -->
+<link rel="icon" href="Images/hanuman-logo.webp" type="image/webp">
+
+<!-- Performance Optimizations: Responsive Preload LCP Images -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="Images/hanuman-logo.webp">
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80" media="(max-width: 768px)">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85" media="(min-width: 769px)">
 
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
@@ -48,7 +52,6 @@
     padding: 20px 60px;
     background: linear-gradient(to bottom, rgba(14,31,22,0.95), transparent);
     transition: background 0.4s;
-    will-change: background;
   }
   nav.scrolled { background: rgba(14,31,22,0.97); }
 
@@ -93,7 +96,6 @@
       url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1800&q=85') center/cover;
     transform:scale(1.06);
     animation: heroZoom 14s ease-out forwards;
-    will-change: transform;
   }
   @keyframes heroZoom { to { transform:scale(1); } }
 
@@ -101,7 +103,6 @@
     position:absolute; border-radius:50%;
     border: 1px solid rgba(122,175,138,0.15);
     animation: circlePulse 6s ease-in-out infinite;
-    will-change: opacity;
   }
   .hero-circle:nth-child(2){ width:600px;height:600px; top:-100px;right:-150px; animation-delay:0s; }
   .hero-circle:nth-child(3){ width:400px;height:400px; top:40px;right:-50px; animation-delay:1s; }
@@ -113,7 +114,6 @@
     padding:0 20px;
     animation: fadeUp 1.6s ease-out 0.4s both;
     display: flex; flex-direction: column; align-items: center;
-    will-change: transform, opacity;
   }
   @keyframes fadeUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
 
@@ -130,7 +130,6 @@
     height: calc(100% + 80px);
     animation: spinChakra 18s linear infinite;
     z-index: 1;
-    will-change: transform;
   }
   .divine-chakra-inner {
     position: absolute;
@@ -139,7 +138,6 @@
     height: calc(100% + 50px);
     animation: spinChakra 12s linear infinite reverse;
     z-index: 2;
-    will-change: transform;
   }
   @keyframes spinChakra { 100% { transform: rotate(360deg); } }
   
@@ -313,14 +311,12 @@
   .g-item img { 
     width:100%;height:100%;object-fit:cover;
     transition:transform 0.7s ease;display:block; 
-    will-change: transform;
   }
   .g-item:hover img { transform:scale(1.07); }
   .g-overlay {
     position:absolute;inset:0;
     background:linear-gradient(to top,rgba(28,58,42,0.65),transparent);
     opacity:0;transition:opacity 0.4s;
-    will-change: opacity;
   }
   .g-item:hover .g-overlay{opacity:1;}
 
@@ -434,7 +430,6 @@
     width:100%;height:100%;object-fit:cover;
     transition:transform 0.7s ease; display:block;
     filter:saturate(0.8);
-    will-change: transform, filter;
   }
   .fac-card:hover img{transform:scale(1.08);filter:saturate(1);}
   .fac-overlay{
@@ -547,14 +542,38 @@
   .reveal{opacity:0;transform:translateY(36px);transition:opacity 0.85s ease,transform 0.85s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
 
-  /* ── RESPONSIVE ── */
+  /* ── RESPONSIVE & IMAGE OPTIMIZATIONS ── */
   @media(max-width:960px){
-    nav{padding:18px 24px;}
-    .nav-links,.nav-cta{display:none;}
+    nav{padding:15px 20px;}
+    
+    /* Hide ONLY text links, KEEP the CTA button */
+    .nav-links { display:none; }
+    
+    /* Make the CTA button smaller and fit nicely on mobile */
+    .nav-cta {
+      display: inline-block;
+      padding: 8px 16px;
+      font-size: 8px;
+      letter-spacing: 2px;
+    }
+
     .hero-content{padding:0 24px 80px;}
+    
+    /* Load smaller image on mobile to save bandwidth */
+    .hero-bg {
+      background:
+        linear-gradient(to top, rgba(14,31,22,0.97) 0%, rgba(14,31,22,0.45) 55%, rgba(14,31,22,0.2) 100%),
+        url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80') center/cover;
+    }
+    
+    .quote-banner-bg {
+      background:
+        linear-gradient(to right,rgba(14,31,22,0.95) 40%,rgba(14,31,22,0.5) 100%),
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80') center/cover;
+    }
+
     .about-wrap{grid-template-columns:1fr;padding:70px 24px; gap: 40px;}
     
-    /* Optimized the 2 About Images for Mobile layout */
     .about-imgs { margin-bottom: 20px; padding-right: 15px; }
     .about-main { aspect-ratio: 4/3; }
     .about-accent { 
@@ -602,13 +621,14 @@
     <span class="nav-logo-sub">Sacred Township</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#facilities">Suvidhayen</a></li>
-    <li><a href="#contact">Sampark</a></li>
+    <li><a href="#about" aria-label="Navigate to About section">About</a></li>
+    <li><a href="#gallery" aria-label="Navigate to Gallery section">Gallery</a></li>
+    <li><a href="#location" aria-label="Navigate to Location section">Location</a></li>
+    <li><a href="#facilities" aria-label="Navigate to Facilities section">Suvidhayen</a></li>
+    <li><a href="#contact" aria-label="Navigate to Contact section">Sampark</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Enquire Now</a>
+  <!-- This button will now stay visible on mobile -->
+  <a href="#contact" class="nav-cta" aria-label="Enquire now about Bajrang Dham">Enquire Now</a>
 </nav>
 
 <section class="hero">
@@ -661,8 +681,8 @@
     
     <p class="hero-sub">A blessed township where sacred living meets natural abundance — crafted for families who seek peace, community, and a divine address to call home.</p>
     <div class="hero-actions">
-      <a href="#gallery" class="btn-saffron">Explore Township</a>
-      <a href="#about" class="btn-outline-beige">View Master Plan</a>
+      <a href="#gallery" class="btn-saffron" aria-label="Explore Bajrang Dham Township Gallery">Explore Township</a>
+      <a href="#about" class="btn-outline-beige" aria-label="View Bajrang Dham Master Plan">View Master Plan</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -687,15 +707,15 @@
   <div class="about-wrap">
     <div class="about-imgs reveal">
       <div class="about-leaf-border"></div>
-      <img class="about-main" src="Images/1.bajrang dham board.webp" alt="Bajrang Dham land" loading="lazy" decoding="async" width="1600" height="1120">
-      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Talab" loading="lazy" decoding="async" width="800" height="420">
+      <img class="about-main" src="Images/1.bajrang dham board.webp" alt="Wide view of open land plots at Bajrang Dham township" loading="lazy" decoding="async" width="1600" height="1120">
+      <img class="about-accent" src="Images/2.bajrang dham talab.webp" alt="Beautiful serene lake at Bajrang Dham township" loading="lazy" decoding="async" width="800" height="420">
     </div>
     <div class="about-text reveal">
       <span class="section-label">🙏 About</span>
       <h2 class="section-title">Pavitra Bhoomi,<br><em>Sunehara Kal</em></h2>
       <p>Bajrang Dham ek aise township ki kalpana hai jahan har plot par Bajrang Bali ki kripa ho. Yahan mandir ki pavitrata, aur aadhunik suvidhaon ka sangam hai — ek aisa ghar jo sirf makan nahi, balki jeevan bana de.</p>
       <p>Hamare 20 acres mein failey is township mein swachh vayu, hare-bhare parks, pyara talab, aur ek sakshat mandir aapka swagat karta hai. Yeh sirf zameen nahi — yeh aapke sapno ki dharohar hai.</p>
-      <a href="#contact" class="btn-saffron">Book a Site Visit</a>
+      <a href="#contact" class="btn-saffron" aria-label="Book a site visit to Bajrang Dham">Book a Site Visit</a>
     </div>
   </div>
 </div>
@@ -709,23 +729,23 @@
   </div>
   <div class="gallery-grid">
     <div class="g-item g1">
-      <img src="Images/3.bajrang dham boundary.webp" alt="Boundary" loading="lazy" decoding="async" width="1200" height="696">
+      <img src="Images/3.bajrang dham boundary.webp" alt="Secure boundary wall of Bajrang Dham township" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g2">
-      <img src="Images/4.bajrang dham road.webp" alt="Road" loading="lazy" decoding="async" width="720" height="696">
+      <img src="Images/4.bajrang dham road.webp" alt="Paved internal roads inside Bajrang Dham township" loading="lazy" decoding="async" width="720" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g3">
-      <img src="Images/5.bajrang dham.webp" alt="Dham" loading="lazy" decoding="async" width="960" height="1392">
+      <img src="Images/5.bajrang dham.webp" alt="Sacred Dham structure within the township" loading="lazy" decoding="async" width="960" height="1392">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g4">
-      <img src="Images/6.bajrang dham land.webp" alt="Land" loading="lazy" decoding="async" width="720" height="696">
+      <img src="Images/6.bajrang dham land.webp" alt="Premium open plot available for sale at Bajrang Dham" loading="lazy" decoding="async" width="720" height="696">
       <div class="g-overlay"></div>
     </div>
     <div class="g-item g5">
-      <img src="Images/7.bajrang dham land.webp" alt="land" loading="lazy" decoding="async" width="1200" height="696">
+      <img src="Images/7.bajrang dham land.webp" alt="Lush green landscape and plots at Bajrang Dham" loading="lazy" decoding="async" width="1200" height="696">
       <div class="g-overlay"></div>
     </div>
   </div>
@@ -737,7 +757,7 @@
     <h2 class="section-title light">Bajrang Dham Ki<br><em>Jhalak Dekhein</em></h2>
   </div>
   <div class="video-wrap reveal">
-    <div class="video-thumb" id="videoThumb" onclick="playVideo()">
+    <div class="video-thumb" id="videoThumb" onclick="playVideo()" onkeypress="if(event.key === 'Enter') playVideo()" tabindex="0" role="button" aria-label="Play Bajrang Dham Township Tour Video">
       <div class="play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
@@ -750,7 +770,7 @@
     id="ytFrame" 
     src="" 
     data-src="https://www.youtube.com/embed/fyR47jd6IEU?si=6BdCyoixkFIWsXsJ&autoplay=1" 
-    title="YouTube video player" 
+    title="Bajrang Dham Township Tour Video" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
     allowfullscreen
@@ -814,7 +834,7 @@
   </div>
   <div class="facilities-grid">
     <div class="fac-card">
-      <img src="Images/hanuman mandir.webp" alt="Mandir" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/hanuman mandir.webp" alt="Bajrang Bali Temple located inside the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">01</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🛕</span>
@@ -824,7 +844,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/dhanbad station.webp" alt="Station" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/dhanbad station.webp" alt="Dhanbad Railway Station near the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">02</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🚉</span>
@@ -834,7 +854,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/school image.webp" alt="School" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/school image.webp" alt="Local school situated close to Bajrang Dham" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">03</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏫</span>
@@ -844,7 +864,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/doctor for hospital.webp" alt="Hospital" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/doctor for hospital.webp" alt="Modern hospital facility near the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">04</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🏥</span>
@@ -854,7 +874,7 @@
       </div>
     </div>
     <div class="fac-card">
-      <img src="Images/chhath image.webp" alt="Talab" loading="lazy" decoding="async" width="600" height="880">
+      <img src="Images/chhath image.webp" alt="Dedicated Chhath lake for religious ceremonies inside the township" loading="lazy" decoding="async" width="600" height="880">
       <div class="fac-num">05</div>
       <div class="fac-overlay">
         <span class="fac-emoji">🌊</span>
@@ -873,7 +893,7 @@
     <h2 class="section-title">Apna Plot<br><em>Abhi Book Karen</em></h2>
     <p>Pre-launch pricing sirf kuch samay ke liye upalabdh hai.<br>Abhi sampark karen aur apna sapna ghar suraxit karen.</p>
     <div class="cta-btns">
-      <a href="#contact" class="btn-saffron">Site Visit Book Karen</a>
+      <a href="#contact" class="btn-saffron" aria-label="Book a Site Visit to Bajrang Dham">Site Visit Book Karen</a>
     </div>
   </div>
 </section>
@@ -885,14 +905,14 @@
   <div class="contact-persons-wrapper">
     <div class="contact-person-block">
       <div class="contact-person">Mr. Sanjeev Kumar Ranjan</div>
-      <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
+      <a href="https://api.whatsapp.com/send/?phone=9708673068&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron" aria-label="Send WhatsApp enquiry to Mr. Sanjeev Kumar Ranjan">
         🙏 Enquiry Bhejein
       </a>
     </div>
 
     <div class="contact-person-block">
       <div class="contact-person">Mr. Navin Sinha</div>
-      <a href="https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron">
+      <a href="https://api.whatsapp.com/send/?phone=7979076270&text=Hi%2C+I+got+your+contact+from+the+Bajrang+Dham+website.+I+am+interested+in+registering+a+plot.+Kindly+send+the+details+and+visiting+timings.&type=phone_number&app_absent=0" target="_blank" class="btn-saffron" aria-label="Send WhatsApp enquiry to Mr. Navin Sinha">
         🙏 Enquiry Bhejein
       </a>
     </div>
